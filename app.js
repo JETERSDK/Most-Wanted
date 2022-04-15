@@ -344,3 +344,11 @@ function getSiblings(person, people) {
     return siblingsToReturn;
 }
 
+function promptFor(question, valid) {
+
+    do {
+        var response = prompt(question).trim();
+    } while (!response || !valid(response));
+    return response;
+}
+
