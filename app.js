@@ -91,3 +91,33 @@ function searchByHeight(people) {
     }
 }
 
+function searchByWeight(people) {
+    var weightSearch = promptFor("Do you want to search by weight? Enter yes or no.", yesNo).toLowerCase();
+
+    switch (weightSearch) {
+        case "yes":
+            var findWeight = lookUpWeight(people);
+            return findWeight;
+        case "no":
+            return people;
+        default:
+            searchByWeight(people);
+            break;
+    }
+}
+
+function searchByOccupation(people) {
+    var occupationSearch = promptFor("Do you want to search by occupation? Enter yes or no.", yesNo).toLowerCase();
+
+    switch (occupationSearch) {
+        case "yes":
+            var findOccupation = lookUpOccupation(people);
+            return findOccupation;
+        case "no":
+            return people;
+        default:
+            searchByOccupation(people);
+            break;
+    }
+}
+
