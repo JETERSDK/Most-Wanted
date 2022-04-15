@@ -50,3 +50,44 @@ function mainMenu(person, people) {
     }
 }
 
+function searchByTraits(people) {
+
+    var listed = "";
+    var filteredList;
+
+    filteredList = searchByHeight(filteredList);
+    filteredList = searchByWeight(filteredList);
+    filteredList = searchByOccupation(filteredList);
+    filteredList = searchByEyeColor(filteredList);
+
+    if (filteredList.length === 22) {
+        alert("You said no to all filters, there is no one to display.");
+    }
+    else if (filteredList.length === 0) {
+        alert("There is no one that meets your criteria.");
+    }
+    else {
+        for (var i = 0; i < filteredList.length; i++) {
+            listed += filteredList[i].firstName + " " + filteredList[i].lastName + ". ";
+        }
+        alert(listed);
+    }
+
+    app(people);
+}
+
+function searchByHeight(people) {
+    var heightSearch = promptFor("Do you want to search by height? Enter yes or no.", yesNo).toLowerCase();
+
+    switch (heightSearch) {
+        case "yes":
+            var findHeight = lookUpHeight(people);
+            return findHeight;
+        case "no":
+            return people;
+        default:
+            searchByHeight(people);
+            break;
+    }
+}
+
