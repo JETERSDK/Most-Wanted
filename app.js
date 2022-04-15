@@ -352,3 +352,7 @@ function promptFor(question, valid) {
     return response;
 }
 
+function yesNo(input) {
+    return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
+}
+
