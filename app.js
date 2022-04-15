@@ -356,3 +356,7 @@ function yesNo(input) {
     return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
 }
 
+function chars(input) {
+    return true;
+}
+
